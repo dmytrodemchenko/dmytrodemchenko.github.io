@@ -1,3 +1,4 @@
+import './scss/main.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroAnimation, initScrollAnimations } from './ts/modules/animations.ts';
