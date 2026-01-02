@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dmytro Demchenko | Senior Front-End Engineer</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Dmytro Demchenko | Senior Front-End Engineer" />
+    <meta
+      name="description"
+      content="Senior Front-End Engineer with 10+ years of experience specializing in Angular, RxJS, and modern web architecture. Based in Krakow, Poland."
+    />
+    <meta name="keywords" content="Dmytro Demchenko, Front-End Engineer, Senior Developer, Angular, RxJS, TypeScript, JavaScript, Web Development, Krakow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Dmytro Demchenko" />
+    <meta name="theme-color" content="#ccff00" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dmytrodemchenko.com/" />
+    <meta property="og:title" content="Dmytro Demchenko | Senior Front-End Engineer" />
+    <meta property="og:description" content="Senior Front-End Engineer with 10+ years of experience specializing in Angular, RxJS, and modern web architecture. Building high-performance web applications." />
+    <!-- Placeholder image, user should update -->
+    <meta property="og:image" content="https://dmytrodemchenko.com/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://dmytrodemchenko.com/" />
+    <meta property="twitter:title" content="Dmytro Demchenko | Senior Front-End Engineer" />
+    <meta property="twitter:description" content="Senior Front-End Engineer with 10+ years of experience specializing in Angular, RxJS, and modern web architecture." />
+    <meta property="twitter:image" content="https://dmytrodemchenko.com/og-image.jpg" />
+
+    <!-- Fonts -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/scss/main.scss" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dmytro Demchenko",
+        "jobTitle": "Senior Front-End Engineer",
+        "url": "https://dmytrodemchenko.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/dmytro-demchenko-2a949675/",
+          "https://t.me/demchenkodmytro"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Ciklum"
+        },
+        "description": "Senior Front-End Engineer with 10+ years of experience based in Krakow, Poland, specializing in Angular and modern web architecture."
+      }
+    </script>
+  </head>
+  <body class="dark-theme">
+    <div id="app">
+      <nav class="nav">
+        <div class="nav__container">
+          <a href="#hero" class="nav__logo">DD<span>.</span></a>
+          <button class="nav__burger" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav__list">
+            <li><a href="#about" class="nav__link">About</a></li>
+            <li><a href="#experience" class="nav__link">Experience</a></li>
+            <li><a href="#skills" class="nav__link">Skills</a></li>
+            <li>
+              <a href="#contact" class="nav__link nav__link--cta">Contact</a>
+            </li>
+            <li class="nav__line"></li>
+          </ul>
+        </div>
+      </nav>
+
+      <header id="hero" class="hero">
+        <div class="hero__canvas-container">
+          <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="hero__content">
+          <h2 class="hero__subtitle">Senior Software Engineer</h2>
+          <h1 class="hero__title">
+            <span class="hero__title-line">Dmytro</span>
+            <span class="hero__title-line hero__title-line--accent" data-text="Demchenko"
+              >Demchenko</span
+            >
+          </h1>
+          <p class="hero__location">Based in Krakow, Poland</p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Get in touch</a>
+            <a href="#experience" class="btn btn--outline">View Work</a>
+          </div>
+        </div>
+        <div class="hero__scroll-indicator">
+          <div class="hero__scroll-dot"></div>
+        </div>
+      </header>
+
+      <main>
+        <section id="about" class="section about">
+          <div class="container">
+            <h2 class="section__title">About Me</h2>
+            <div class="about__grid">
+              <div class="about__text">
+                <p class="u-highlight">
+                  Senior Front-End Engineer with 10+ years of professional
+                  experience focused on building and maintaining large-scale web
+                  applications.
+                </p>
+                <p>
+                  Deep expertise in Angular (v2–21+), RxJS, state management,
+                  and front-end architecture. Strong background in performance
+                  optimization, UI scalability, and long-term codebase
+                  ownership.
+                </p>
+                <p>
+                  Experienced in mentoring engineers, leading technical
+                  discussions, and collaborating closely with product and
+                  business stakeholders.
+                </p>
+              </div>
+              <div class="about__stats">
+                <div class="stat">
+                  <span class="stat__number">10+</span>
+                  <span class="stat__label">Years Experience</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__number">50+</span>
+                  <span class="stat__label">Projects Delivered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" class="section experience">
+          <div class="container">
+            <h2 class="section__title">Experience</h2>
+            <div class="experience__list">
+              <div class="experience__item">
+                <div class="experience__header">
+                  <h3 class="experience__role">Senior Front-End Developer</h3>
+                  <span class="experience__company">Ciklum</span>
+                  <span class="experience__date">Oct 2020 – Present</span>
+                </div>
+                <ul class="experience__details">
+                  <li>
+                    Development and support of a large-scale Progressive Web Application based on Angular.
+                  </li>
+                  <li>
+                    Ownership of front-end architecture decisions, including module structure, shared components, and state management approach.
+                  </li>
+                  <li>
+                    Close collaboration with designers and product stakeholders to deliver accessible and user-friendly interfaces.
+                  </li>
+                  <li>
+                    Focus on front-end performance, maintainability, and long-term scalability of the codebase.
+                  </li>
+                  <li>
+                    Active participation in backlog refinement, estimations, and feature decomposition.
+                  </li>
+                  <li>
+                    Code reviews and technical mentoring of junior and middle engineers.
+                  </li>
+                  <li>
+                    Contribution to technical discussions around product evolution and front-end strategy.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience__item">
+                <div class="experience__header">
+                  <h3 class="experience__role">Senior Front-End Developer</h3>
+                  <span class="experience__company">Customertimes</span>
+                  <span class="experience__date">Jun 2020 – Oct 2020</span>
+                </div>
+                <ul class="experience__details">
+                  <li>
+                    Development of a mobile application using Ionic and Angular.
+                  </li>
+                  <li>
+                    Participation in architectural and technical discussions related to mobile and web solutions.
+                  </li>
+                  <li>
+                    Backlog analysis, estimations, and decomposition of features into technical tasks.
+                  </li>
+                  <li>
+                    Preparation of technical documentation describing system structure and development conventions.
+                  </li>
+                  <li>
+                    Collaboration with QA engineers on test scenarios and quality-related questions.
+                  </li>
+                  <li>
+                    Identification and resolution of front-end issues affecting usability and stability.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience__item">
+                <div class="experience__header">
+                  <h3 class="experience__role">
+                    Senior/Middle Software Engineer
+                  </h3>
+                  <span class="experience__company">GlobalLogic</span>
+                  <span class="experience__date">Dec 2014 – Feb 2019</span>
+                </div>
+                <ul class="experience__details">
+                  <li>
+                    Development of complex front-end applications using Angular,
+                    React, and native JavaScript.
+                  </li>
+                  <li>
+                    Collaboration with back-end teams on REST API integration.
+                  </li>
+                  <li>
+                    Creation and support of reusable UI components and shared
+                    front-end libraries.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience__item">
+                <div class="experience__header">
+                  <h3 class="experience__role">Front-End Developer</h3>
+                  <span class="experience__company">Epom</span>
+                  <span class="experience__date">Feb 2013 – Dec 2014</span>
+                </div>
+                <ul class="experience__details">
+                  <li>
+                    Developed W3C-validated HTML5 code, ensuring cross-browser
+                    compatibility across platforms.
+                  </li>
+                  <li>
+                    Converted complex Photoshop designs into pixel-perfect web
+                    pages using HTML, CSS, and JavaScript.
+                  </li>
+                  <li>
+                    Created HTML email templates and engaging newsletters.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience__item">
+                <div class="experience__header">
+                  <h3 class="experience__role">
+                    HTML Coder / Trainee Front-End Developer
+                  </h3>
+                  <span class="experience__company">Freelancer</span>
+                  <span class="experience__date">2012 – 2013</span>
+                </div>
+                <ul class="experience__details">
+                  <li>
+                    Designed website layouts and user interfaces using standard
+                    HTML and CSS practices.
+                  </li>
+                  <li>
+                    Developed basic interactive features with JavaScript,
+                    jQuery, and jQueryUI.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="section skills">
+          <div class="container">
+            <h2 class="section__title">Technical Expertise</h2>
+            <div class="skills__grid">
+              <div class="skills__category">
+                <h3 class="skills__category-title">Core & Frameworks</h3>
+                <ul class="skills__list">
+                  <li>Angular (21+)</li>
+                  <li>React.js</li>
+                  <li>Svelte.js</li>
+                  <li>RxJS / NgRx</li>
+                  <li>TypeScript</li>
+                  <li>Node.js</li>
+                </ul>
+              </div>
+              <div class="skills__category">
+                <h3 class="skills__category-title">UI & Styling</h3>
+                <ul class="skills__list">
+                  <li>HTML5 / CSS3</li>
+                  <li>SASS / BEM</li>
+                  <li>Angular Material</li>
+                  <li>PrimeNG</li>
+                  <li>Material Design</li>
+                </ul>
+              </div>
+              <div class="skills__category">
+                <h3 class="skills__category-title">Tooling & Design</h3>
+                <ul class="skills__list">
+                  <li>Vite / Webpack</li>
+                  <li>Git / GitHub</li>
+                  <li>Agile (Scrum)</li>
+                  <li>Sketch / Zeplin</li>
+                  <li>Performance Opt.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="footer">
+        <canvas id="contact-canvas"></canvas>
+        <div class="container">
+          <div class="footer__content">
+            <h2 class="footer__title">Let's Connect</h2>
+            <p class="footer__email">demchenko.di@gmail.com</p>
+            <div class="footer__socials">
+              <a href="https://t.me/demchenkodmytro" target="_blank" class="footer__link">Telegram</a>
+              <a href="https://www.linkedin.com/in/dmytro-demchenko-2a949675/" target="_blank" class="footer__link">LinkedIn</a>
+              <div class="footer__phones">
+                <a href="tel:+48793218785" class="footer__link">+(48) 793 218 785</a>
+                <a href="tel:+380999339815" class="footer__link">+380 (99) 933 9815</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p>&copy; 2025 Dmytro Demchenko</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
