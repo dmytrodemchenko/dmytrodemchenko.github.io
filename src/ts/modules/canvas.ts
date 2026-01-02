@@ -6,7 +6,7 @@ interface MousePosition {
 }
 
 export const initCanvasAnimation = (): void => {
-    const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement | null;
+    const canvas = document.getElementById(CONFIG.SELECTORS.HERO_CANVAS) as HTMLCanvasElement | null;
     if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
@@ -154,7 +154,7 @@ export const initCanvasAnimation = (): void => {
 };
 
 export const initContactAnimation = (): void => {
-    const canvas = document.getElementById('contact-canvas') as HTMLCanvasElement | null;
+    const canvas = document.getElementById(CONFIG.SELECTORS.CONTACT_CANVAS) as HTMLCanvasElement | null;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');

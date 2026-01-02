@@ -3,10 +3,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CONFIG } from '../config.ts';
 
 export const initNavigationActiveState = (): void => {
-    const sections = gsap.utils.toArray<HTMLElement>(['#hero', '.section', '.footer']);
-    const navLinks = gsap.utils.toArray<HTMLAnchorElement>('.nav__link');
+    const sections = gsap.utils.toArray<HTMLElement>(CONFIG.SELECTORS.SECTIONS);
+    const navLinks = gsap.utils.toArray<HTMLAnchorElement>(CONFIG.SELECTORS.NAV_LINK);
 
-    const navLine = document.querySelector<HTMLElement>('.nav__line');
+    const navLine = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LINE);
     const updateNavLine = (link: HTMLAnchorElement | null): void => {
         if (!navLine || !link) {
              if (navLine) navLine.style.opacity = '0';
@@ -14,13 +14,13 @@ export const initNavigationActiveState = (): void => {
         }
         
         // Don't show line for CTA button (Contact)
-        if (link.classList.contains('nav__link--cta')) {
+        if (link.classList.contains(CONFIG.SELECTORS.NAV_LINK_CTA)) {
             navLine.style.opacity = '0';
             return;
         }
 
         const rect = link.getBoundingClientRect();
-        const navList = link.closest('.nav__list');
+        const navList = link.closest(CONFIG.SELECTORS.NAV_LIST);
         if (!navList) return;
         
         const listRect = navList.getBoundingClientRect();
@@ -45,9 +45,9 @@ export const initNavigationActiveState = (): void => {
             onToggle: self => {
                 if (self.isActive) {
                     navLinks.forEach(link => {
-                        link.classList.remove('nav__link--active');
+                        link.classList.remove(CONFIG.SELECTORS.NAV_LINK_ACTIVE);
                         if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('nav__link--active');
+                            link.classList.add(CONFIG.SELECTORS.NAV_LINK_ACTIVE);
                             updateNavLine(link);
                         }
                     });
@@ -61,29 +61,29 @@ export const initNavigationActiveState = (): void => {
         link.addEventListener('mouseenter', () => updateNavLine(link));
     });
 
-    const navList = document.querySelector<HTMLElement>('.nav__list');
+    const navList = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LIST);
     if (navList) {
         navList.addEventListener('mouseleave', () => {
-            const activeLink = document.querySelector<HTMLAnchorElement>('.nav__link--active');
+            const activeLink = document.querySelector<HTMLAnchorElement>(`.${CONFIG.SELECTORS.NAV_LINK_ACTIVE}`);
             updateNavLine(activeLink);
         });
     }
 };
 
 export const initMobileMenu = (): void => {
-    const burger = document.querySelector<HTMLElement>('.nav__burger');
-    const navList = document.querySelector<HTMLElement>('.nav__list');
-    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav__link');
+    const burger = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_BURGER);
+    const navList = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LIST);
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(CONFIG.SELECTORS.NAV_LINK);
 
     if (!burger || !navList) return;
 
     burger.addEventListener('click', () => {
-        const isActive = burger.classList.toggle('nav__burger--active');
+        const isActive = burger.classList.toggle(CONFIG.SELECTORS.NAV_BURGER_ACTIVE);
         navList.classList.toggle('active');
 
         if (isActive) {
             // Animate items in
-            gsap.fromTo('.nav__list li', 
+            gsap.fromTo(`${CONFIG.SELECTORS.NAV_LIST} li`, 
                 { x: 50, opacity: 0 },
                 { 
                     x: 0, 
@@ -99,21 +99,21 @@ export const initMobileMenu = (): void => {
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            burger.classList.remove('nav__burger--active');
+            burger.classList.remove(CONFIG.SELECTORS.NAV_BURGER_ACTIVE);
             navList.classList.remove('active');
         });
     });
 };
 
 export const initHeaderScroll = (): void => {
-    const nav = document.querySelector<HTMLElement>('.nav');
+    const nav = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV);
     if (!nav) return;
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > CONFIG.SCROLL_TRIGGER.HERO_TOP_OFFSET) {
-            nav.classList.add('nav--scrolled');
+            nav.classList.add(CONFIG.SELECTORS.NAV_ACTIVE);
         } else {
-            nav.classList.remove('nav--scrolled');
+            nav.classList.remove(CONFIG.SELECTORS.NAV_ACTIVE);
         }
     });
 };

@@ -4,33 +4,33 @@ import { CONFIG } from '../config.ts';
 export const initHeroAnimation = (): void => {
     const tl = gsap.timeline();
 
-    tl.from('.nav', {
+    tl.from(CONFIG.SELECTORS.NAV, {
         y: -100,
         opacity: 0,
         duration: CONFIG.ANIMATION.DURATION_EXTRA_LONG,
         ease: CONFIG.ANIMATION.EASE_POWER4
     })
-    .from('.hero__subtitle', {
+    .from(CONFIG.SELECTORS.HERO_SUBTITLE, {
         y: 20,
         opacity: 0,
         duration: CONFIG.ANIMATION.DURATION_LONG,
         ease: CONFIG.ANIMATION.EASE_SMOOTH
     }, '-=0.8')
-    .from('.hero__title-line', {
+    .from(CONFIG.SELECTORS.HERO_TITLE_LINE, {
         y: 100,
         opacity: 0,
         duration: CONFIG.ANIMATION.DURATION_HERO_LINE,
         stagger: CONFIG.ANIMATION.STAGGER_HERO_LINE,
         ease: CONFIG.ANIMATION.EASE_POWER4
     }, '-=1')
-    .from('.hero__location, .hero__actions', {
+    .from(`${CONFIG.SELECTORS.HERO_LOCATION}, ${CONFIG.SELECTORS.HERO_ACTIONS}`, {
         y: 20,
         opacity: 0,
         duration: CONFIG.ANIMATION.DURATION_LONG,
         stagger: CONFIG.ANIMATION.STAGGER_HERO_LINE,
         ease: CONFIG.ANIMATION.EASE_SMOOTH
     }, '-=0.8')
-    .from('.hero__scroll-indicator', {
+    .from(CONFIG.SELECTORS.HERO_INDICATOR, {
         opacity: 0,
         duration: CONFIG.ANIMATION.DURATION_LONG
     }, '-=0.5');
@@ -38,8 +38,8 @@ export const initHeroAnimation = (): void => {
 
 export const initScrollAnimations = (): void => {
     // Fade in sections
-    gsap.utils.toArray<HTMLElement>('.section').forEach(section => {
-        const elements = section.querySelectorAll('.section__title, .about__text, .experience__item, .skills__category');
+    gsap.utils.toArray<HTMLElement>(CONFIG.SELECTORS.SECTION).forEach(section => {
+        const elements = section.querySelectorAll(CONFIG.SELECTORS.SECTION_REVEAL);
         
         if (elements.length > 0) {
             gsap.fromTo(elements, 
@@ -61,7 +61,7 @@ export const initScrollAnimations = (): void => {
         }
 
         // Specific Skills Animation
-        const skillItems = section.querySelectorAll('.skills__list li');
+        const skillItems = section.querySelectorAll(CONFIG.SELECTORS.SKILLS_LIST_ITEM);
         if (skillItems.length > 0) {
             gsap.fromTo(skillItems,
                 { opacity: 0, scale: 0.8 },
@@ -81,7 +81,7 @@ export const initScrollAnimations = (): void => {
     });
 
     // Stat numbers animation
-    gsap.utils.toArray<HTMLElement>('.stat__number').forEach(stat => {
+    gsap.utils.toArray<HTMLElement>(CONFIG.SELECTORS.STAT_NUMBER).forEach(stat => {
         const val = parseInt(stat.innerText) || 0;
         gsap.fromTo(stat, 
             { innerHTML: 0 },

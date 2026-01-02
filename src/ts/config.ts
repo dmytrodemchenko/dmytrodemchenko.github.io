@@ -36,9 +36,33 @@ export interface Config {
     SCROLL_TRIGGER: {
         HERO_TOP_OFFSET: number;
     };
+    SELECTORS: {
+        NAV: string;
+        NAV_LIST: string;
+        NAV_BURGER: string;
+        NAV_LINK: string;
+        NAV_LINE: string;
+        NAV_LINK_ACTIVE: string;
+        NAV_LINK_CTA: string;
+        NAV_BURGER_ACTIVE: string;
+        NAV_ACTIVE: string;
+        HERO_CANVAS: string;
+        HERO_SUBTITLE: string;
+        HERO_TITLE_LINE: string;
+        HERO_LOCATION: string;
+        HERO_ACTIONS: string;
+        HERO_INDICATOR: string;
+        CONTACT_CANVAS: string;
+        SECTIONS: string[];
+        SECTION: string;
+        SECTION_REVEAL: string;
+        SKILLS_LIST_ITEM: string;
+        STAT_NUMBER: string;
+    };
 }
 
 export const CONFIG: Config = {
+    // ... animation, colors, etc ...
     ANIMATION: {
         DURATION_SHORT: 0.4,
         DURATION_MEDIUM: 0.5,
@@ -75,6 +99,29 @@ export const CONFIG: Config = {
     },
     SCROLL_TRIGGER: {
         HERO_TOP_OFFSET: 50
+    },
+    SELECTORS: {
+        NAV: '.nav',
+        NAV_LIST: '.nav__list',
+        NAV_BURGER: '.nav__burger',
+        NAV_LINK: '.nav__link',
+        NAV_LINE: '.nav__line',
+        NAV_LINK_ACTIVE: 'nav__link--active',
+        NAV_LINK_CTA: 'nav__link--cta',
+        NAV_BURGER_ACTIVE: 'nav__burger--active',
+        NAV_ACTIVE: 'nav--scrolled',
+        HERO_CANVAS: 'hero-canvas',
+        HERO_SUBTITLE: '.hero__subtitle',
+        HERO_TITLE_LINE: '.hero__title-line',
+        HERO_LOCATION: '.hero__location',
+        HERO_ACTIONS: '.hero__actions',
+        HERO_INDICATOR: '.hero__scroll-indicator',
+        CONTACT_CANVAS: 'contact-canvas',
+        SECTIONS: ['#hero', '.section', '.footer'],
+        SECTION: '.section',
+        SECTION_REVEAL: '.section__title, .about__text, .experience__item, .skills__category',
+        SKILLS_LIST_ITEM: '.skills__list li',
+        STAT_NUMBER: '.stat__number'
     }
 };
 
