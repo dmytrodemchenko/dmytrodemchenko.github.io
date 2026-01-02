@@ -117,3 +117,37 @@ export const initHeaderScroll = (): void => {
         }
     });
 };
+
+export const initHashScroll = (): void => {
+    // Handle initial load with hash
+    const handleInitialHash = () => {
+        const hash = window.location.hash;
+        if (hash) {
+            // Small delay to ensure GSAP and ScrollTrigger are ready
+            setTimeout(() => {
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
+        }
+    };
+
+    // Handle clicks on anchor links for smooth behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                // Update URL hash without jumping
+                history.pushState(null, '', href);
+            }
+        });
+    });
+
+    window.addEventListener('load', handleInitialHash);
+};
