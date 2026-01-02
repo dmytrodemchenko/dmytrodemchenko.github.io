@@ -1,0 +1,92 @@
+@import "../base/variables";
+
+.experience {
+  background-color: $color-dark-grey;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+  }
+
+  &__item {
+    border-left: 2px solid $color-grey;
+    padding-left: 4rem;
+    position: relative;
+    transition: $transition-smooth;
+
+    @media (max-width: 480px) {
+      padding-left: 2rem;
+    }
+
+    &:hover {
+      border-color: $color-accent;
+      transform: translateX(1rem);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -0.8rem;
+      top: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: $color-black;
+      border: 2px solid $color-grey;
+      border-radius: 50%;
+      transition: $transition-smooth;
+    }
+
+    &:hover::before {
+      background-color: $color-accent;
+      border-color: $color-accent;
+      box-shadow: 0 0 10px $color-accent;
+    }
+  }
+
+  &__header {
+    margin-bottom: 2rem;
+
+    @media (max-width: 480px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  &__role {
+    font-family: $font-display;
+    font-size: 2.8rem;
+
+    @media (max-width: 480px) {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__company {
+    color: $color-accent;
+    font-weight: 700;
+    margin-right: 2rem;
+  }
+
+  &__date {
+    color: $color-light-grey;
+  }
+
+  &__details {
+    li {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: #aaa;
+      position: relative;
+      padding-left: 2rem;
+
+      &::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: $color-accent;
+      }
+    }
+  }
+}

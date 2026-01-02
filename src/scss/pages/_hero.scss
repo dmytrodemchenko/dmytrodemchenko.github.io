@@ -1,0 +1,142 @@
+@import "../base/variables";
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 4rem;
+  overflow: hidden;
+
+  &__canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 1000px;
+  }
+
+  &__subtitle {
+    font-family: $font-display;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8rem;
+    color: $color-light-grey;
+    margin-bottom: 2rem;
+    display: block;
+
+    @media (max-width: 968px) {
+      font-size: 1.4rem;
+      letter-spacing: 0.4rem;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(6rem, 12vw, 12rem);
+    line-height: 0.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 968px) {
+      font-size: clamp(3rem, 10vw, 8rem);
+    }
+  }
+
+  &__title-line {
+    display: block;
+
+    &--accent {
+      color: transparent;
+      -webkit-text-stroke: 1px $color-white;
+      position: relative;
+
+      &::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        color: $color-accent;
+        -webkit-text-stroke: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: width 0.8s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__location {
+    font-size: 1.8rem;
+    color: $color-light-grey;
+    margin-bottom: 5rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      width: 100%;
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 4.5rem;
+    border: 2px solid rgba($color-white, 0.2);
+    border-radius: 2rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.4rem;
+      height: 0.8rem;
+      background-color: $color-accent;
+      border-radius: 0.2rem;
+      animation: scroll-ping 2s infinite;
+    }
+  }
+}
+
+@keyframes scroll-ping {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 2rem);
+    opacity: 0;
+  }
+}

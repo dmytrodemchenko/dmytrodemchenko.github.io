@@ -1,0 +1,91 @@
+@import "../base/variables";
+
+.skills {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__category {
+    background-color: rgba($color-dark-grey, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 1px solid rgba($color-white, 0.05);
+    transition: $transition-smooth;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba($color-accent, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: $transition-smooth;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: rgba($color-accent, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 0 20px rgba($color-accent, 0.05);
+
+      &::before {
+        opacity: 1;
+        transform: scale(1.5);
+      }
+      
+      .skills__category-title {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__category-title {
+    font-family: $font-display;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: $transition-smooth;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+    padding-bottom: 1rem;
+    display: inline-block;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    li {
+      background-color: transparent;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      border: 1px solid rgba($color-white, 0.2);
+      color: rgba($color-white, 0.8);
+      transition: all 0.3s ease;
+      cursor: default;
+      
+      &:hover {
+        border-color: $color-accent;
+        color: $color-black;
+        background-color: $color-accent;
+        box-shadow: 0 0 15px rgba($color-accent, 0.4);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
