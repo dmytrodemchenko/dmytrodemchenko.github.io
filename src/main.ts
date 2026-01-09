@@ -4,11 +4,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroAnimation, initScrollAnimations } from './ts/modules/animations.ts';
 import { initNavigationActiveState, initMobileMenu, initHeaderScroll, initHashScroll } from './ts/modules/navigation.ts';
 import { initCanvasAnimation, initContactAnimation } from './ts/modules/canvas.ts';
+import { initDynamicYear } from './ts/modules/ui.ts';
 import { CONFIG } from './ts/config.ts';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
+    initDynamicYear();
     initHeroAnimation();
     initScrollAnimations();
     initNavigationActiveState();
