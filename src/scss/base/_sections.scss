@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables";
 
 .section {
   padding: 15rem 0;
@@ -8,7 +8,7 @@
   }
 
   &__title {
-    font-family: $font-display;
+    font-family: variables.$font-display;
     font-size: 4.5rem;
     text-transform: uppercase;
     margin-bottom: 8rem;
@@ -27,7 +27,7 @@
       left: 0;
       width: 50%;
       height: 0.4rem;
-      background-color: $color-accent;
+      background-color: variables.$color-accent;
     }
   }
 }

@@ -1,4 +1,4 @@
-@import "../base/variables";
+@use "../base/variables";
 
 .about {
   &__grid {
@@ -53,17 +53,17 @@
   flex-direction: column;
 
   &__number {
-    font-family: $font-display;
+    font-family: variables.$font-display;
     font-size: 6rem;
     font-weight: 900;
     line-height: 1;
-    color: $color-accent;
+    color: variables.$color-accent;
   }
 
   &__label {
     font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-    color: $color-light-grey;
+    color: variables.$color-light-grey;
   }
 }

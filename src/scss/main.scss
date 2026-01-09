@@ -1,21 +1,21 @@
 // --- Base ---
-@import "base/variables";
-@import "base/base";
-@import "base/sections";
+@use "base/variables";
+@use "base/base";
+@use "base/sections";
 
 // --- Utilities ---
-@import "utils/utilities";
+@use "utils/utilities";
 
 // --- Components ---
-@import "components/buttons";
+@use "components/buttons";
 
 // --- Layout ---
-@import "layout/container";
-@import "layout/nav";
-@import "layout/footer";
+@use "layout/container";
+@use "layout/nav";
+@use "layout/footer";
 
 // --- Pages ---
-@import "pages/hero";
-@import "pages/about";
-@import "pages/experience";
-@import "pages/skills";
+@use "pages/hero";
+@use "pages/about";
+@use "pages/experience";
+@use "pages/skills";
