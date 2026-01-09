@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables";
 
 * {
   margin: 0;
@@ -12,9 +12,9 @@ html {
 }
 
 body {
-  background-color: $color-black;
-  color: $color-white;
-  font-family: $font-primary;
+  background-color: variables.$color-black;
+  color: variables.$color-white;
+  font-family: variables.$font-primary;
   font-size: 1.6rem;
   line-height: 1.6;
   overflow-x: hidden;
@@ -34,5 +34,5 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
-  transition: $transition-smooth;
+  transition: variables.$transition-smooth;
 }

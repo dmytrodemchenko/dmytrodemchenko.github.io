@@ -1,7 +1,7 @@
-@import "../base/variables";
+@use "../base/variables";
 
 .experience {
-  background-color: $color-dark-grey;
+  background-color: variables.$color-dark-grey;
 
   &__list {
     display: flex;
@@ -10,17 +10,17 @@
   }
 
   &__item {
-    border-left: 2px solid $color-grey;
+    border-left: 2px solid variables.$color-grey;
     padding-left: 4rem;
     position: relative;
-    transition: $transition-smooth;
+    transition: variables.$transition-smooth;
 
     @media (max-width: 480px) {
       padding-left: 2rem;
     }
 
     &:hover {
-      border-color: $color-accent;
+      border-color: variables.$color-accent;
       transform: translateX(1rem);
     }
 
@@ -31,16 +31,16 @@
       top: 0;
       width: 1.2rem;
       height: 1.2rem;
-      background-color: $color-black;
-      border: 2px solid $color-grey;
+      background-color: variables.$color-black;
+      border: 2px solid variables.$color-grey;
       border-radius: 50%;
-      transition: $transition-smooth;
+      transition: variables.$transition-smooth;
     }
 
     &:hover::before {
-      background-color: $color-accent;
-      border-color: $color-accent;
-      box-shadow: 0 0 10px $color-accent;
+      background-color: variables.$color-accent;
+      border-color: variables.$color-accent;
+      box-shadow: 0 0 10px variables.$color-accent;
     }
   }
 
@@ -55,7 +55,7 @@
   }
 
   &__role {
-    font-family: $font-display;
+    font-family: variables.$font-display;
     font-size: 2.8rem;
 
     @media (max-width: 480px) {
@@ -64,13 +64,13 @@
   }
 
   &__company {
-    color: $color-accent;
+    color: variables.$color-accent;
     font-weight: 700;
     margin-right: 2rem;
   }
 
   &__date {
-    color: $color-light-grey;
+    color: variables.$color-light-grey;
   }
 
   &__details {
@@ -85,7 +85,7 @@
         content: "→";
         position: absolute;
         left: 0;
-        color: $color-accent;
+        color: variables.$color-accent;
       }
     }
   }

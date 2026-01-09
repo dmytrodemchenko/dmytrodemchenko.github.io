@@ -1,6 +1,6 @@
-@import "../base/variables";
+@use "../base/variables";
 
 .u-highlight {
-  color: $color-accent;
+  color: variables.$color-accent;
   font-weight: 600;
 }

@@ -1,4 +1,4 @@
-@import "../base/variables";
+@use "../base/variables";
 
 .skills {
   &__grid {
@@ -12,12 +12,12 @@
   }
 
   &__category {
-    background-color: rgba($color-dark-grey, 0.6);
+    background-color: rgba(variables.$color-dark-grey, 0.6);
     backdrop-filter: blur(10px);
     padding: 3rem;
     border-radius: 1rem;
-    border: 1px solid rgba($color-white, 0.05);
-    transition: $transition-smooth;
+    border: 1px solid rgba(variables.$color-white, 0.05);
+    transition: variables.$transition-smooth;
     position: relative;
     overflow: hidden;
 
@@ -28,16 +28,16 @@
       right: -50px;
       width: 100px;
       height: 100px;
-      background: radial-gradient(circle, rgba($color-accent, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(variables.$color-accent, 0.1) 0%, transparent 70%);
       border-radius: 50%;
       opacity: 0;
-      transition: $transition-smooth;
+      transition: variables.$transition-smooth;
     }
 
     &:hover {
       transform: translateY(-5px);
-      border-color: rgba($color-accent, 0.3);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 0 20px rgba($color-accent, 0.05);
+      border-color: rgba(variables.$color-accent, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 0 20px rgba(variables.$color-accent, 0.05);
 
       &::before {
         opacity: 1;
@@ -45,20 +45,20 @@
       }
       
       .skills__category-title {
-        color: $color-accent;
+        color: variables.$color-accent;
       }
     }
   }
 
   &__category-title {
-    font-family: $font-display;
+    font-family: variables.$font-display;
     font-size: 1.8rem;
     margin-bottom: 2.5rem;
-    color: $color-white;
+    color: variables.$color-white;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    transition: $transition-smooth;
-    border-bottom: 1px solid rgba($color-white, 0.1);
+    transition: variables.$transition-smooth;
+    border-bottom: 1px solid rgba(variables.$color-white, 0.1);
     padding-bottom: 1rem;
     display: inline-block;
   }
@@ -74,16 +74,16 @@
       border-radius: 2rem;
       font-size: 1.3rem;
       font-weight: 500;
-      border: 1px solid rgba($color-white, 0.2);
-      color: rgba($color-white, 0.8);
+      border: 1px solid rgba(variables.$color-white, 0.2);
+      color: rgba(variables.$color-white, 0.8);
       transition: all 0.3s ease;
       cursor: default;
       
       &:hover {
-        border-color: $color-accent;
-        color: $color-black;
-        background-color: $color-accent;
-        box-shadow: 0 0 15px rgba($color-accent, 0.4);
+        border-color: variables.$color-accent;
+        color: variables.$color-black;
+        background-color: variables.$color-accent;
+        box-shadow: 0 0 15px rgba(variables.$color-accent, 0.4);
         transform: translateY(-2px);
       }
     }
