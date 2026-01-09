@@ -58,6 +58,7 @@ export interface Config {
         SECTION_REVEAL: string;
         SKILLS_LIST_ITEM: string;
         STAT_NUMBER: string;
+        FOOTER_YEAR: string;
     };
 }
 
@@ -121,7 +122,8 @@ export const CONFIG: Config = {
         SECTION: '.section',
         SECTION_REVEAL: '.section__title, .about__text, .experience__item, .skills__category',
         SKILLS_LIST_ITEM: '.skills__list li',
-        STAT_NUMBER: '.stat__number'
+        STAT_NUMBER: '.stat__number',
+        FOOTER_YEAR: '#year'
     }
 };
 
