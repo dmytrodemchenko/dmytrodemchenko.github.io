@@ -7,7 +7,7 @@
   width: 100%;
   z-index: 1000;
   padding: 3rem 0;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 
   &--scrolled {
     background-color: rgba($color-black, 0.6);
@@ -179,6 +179,10 @@
 
       li {
         counter-increment: menu-counter;
+      }
+
+      .nav__line {
+        display: none;
       }
     }
 

@@ -4,12 +4,17 @@ import { CONFIG } from '../config.ts';
 export const initHeroAnimation = (): void => {
     const tl = gsap.timeline();
 
-    tl.from(CONFIG.SELECTORS.NAV, {
-        y: -100,
-        opacity: 0,
-        duration: CONFIG.ANIMATION.DURATION_EXTRA_LONG,
-        ease: CONFIG.ANIMATION.EASE_POWER4
-    })
+    tl.fromTo(CONFIG.SELECTORS.NAV, 
+        { y: -100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: CONFIG.ANIMATION.DURATION_EXTRA_LONG,
+            ease: CONFIG.ANIMATION.EASE_POWER4,
+            clearProps: 'opacity,transform',
+            overwrite: true
+        }
+    )
     .from(CONFIG.SELECTORS.HERO_SUBTITLE, {
         y: 20,
         opacity: 0,
@@ -37,7 +42,6 @@ export const initHeroAnimation = (): void => {
 };
 
 export const initScrollAnimations = (): void => {
-    // Fade in sections
     gsap.utils.toArray<HTMLElement>(CONFIG.SELECTORS.SECTION).forEach(section => {
         const elements = section.querySelectorAll(CONFIG.SELECTORS.SECTION_REVEAL);
         
@@ -60,7 +64,6 @@ export const initScrollAnimations = (): void => {
             );
         }
 
-        // Specific Skills Animation
         const skillItems = section.querySelectorAll(CONFIG.SELECTORS.SKILLS_LIST_ITEM);
         if (skillItems.length > 0) {
             gsap.fromTo(skillItems,
@@ -80,9 +83,8 @@ export const initScrollAnimations = (): void => {
         }
     });
 
-    // Stat numbers animation
     gsap.utils.toArray<HTMLElement>(CONFIG.SELECTORS.STAT_NUMBER).forEach(stat => {
-        const val = parseInt(stat.innerText) || 0;
+        const val = parseInt(stat.innerText, 10) || 0;
         gsap.fromTo(stat, 
             { innerHTML: 0 },
             {
@@ -91,7 +93,7 @@ export const initScrollAnimations = (): void => {
                     start: 'top 95%'
                 },
                 innerHTML: val,
-                duration: 2, // Keep 2s for counting effect
+                duration: 2,
                 snap: { innerHTML: 1 },
                 ease: CONFIG.ANIMATION.EASE_INOUT
             }

@@ -8,12 +8,14 @@ export const initNavigationActiveState = (): void => {
 
     const navLine = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LINE);
     const updateNavLine = (link: HTMLAnchorElement | null): void => {
-        if (!navLine || !link) {
+        const burger = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_BURGER);
+        const isMobile = burger && window.getComputedStyle(burger).display !== 'none';
+
+        if (!navLine || !link || isMobile) {
              if (navLine) navLine.style.opacity = '0';
              return;
         }
-        
-        // Don't show line for CTA button (Contact)
+
         if (link.classList.contains(CONFIG.SELECTORS.NAV_LINK_CTA)) {
             navLine.style.opacity = '0';
             return;
@@ -30,11 +32,26 @@ export const initNavigationActiveState = (): void => {
         navLine.style.opacity = '1';
     };
 
+    const setActiveLink = (id: string | null): void => {
+        let hasMatch = false;
+        navLinks.forEach(link => {
+            link.classList.remove(CONFIG.SELECTORS.NAV_LINK_ACTIVE);
+            if (id && link.getAttribute('href') === `#${id}`) {
+                link.classList.add(CONFIG.SELECTORS.NAV_LINK_ACTIVE);
+                updateNavLine(link);
+                hasMatch = true;
+            }
+        });
+        
+        if (!hasMatch) {
+            updateNavLine(null);
+        }
+    };
+
     sections.forEach(section => {
         const id = section.getAttribute('id');
         if (!id) return;
 
-        // Custom trigger for Contact section
         const startTrigger = id === 'contact' ? 'top 75%' : 'top 50%';
         const endTrigger = id === 'contact' ? 'bottom 0%' : 'bottom 50%';
 
@@ -42,23 +59,34 @@ export const initNavigationActiveState = (): void => {
             trigger: section,
             start: startTrigger,
             end: endTrigger,
-            onToggle: self => {
-                if (self.isActive) {
-                    navLinks.forEach(link => {
-                        link.classList.remove(CONFIG.SELECTORS.NAV_LINK_ACTIVE);
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add(CONFIG.SELECTORS.NAV_LINK_ACTIVE);
-                            updateNavLine(link);
-                        }
-                    });
-                }
-            }
+            onEnter: () => setActiveLink(id),
+            onEnterBack: () => setActiveLink(id),
         });
     });
 
-    // Handle hover effects for line
+    ScrollTrigger.create({
+        trigger: 'body',
+        start: 'top top',
+        end: '+=100',
+        onEnterBack: () => setActiveLink(null),
+        onToggle: self => {
+            if (self.isActive && window.scrollY < 50) {
+                setActiveLink(null);
+            }
+        }
+    });
+
     navLinks.forEach(link => {
         link.addEventListener('mouseenter', () => updateNavLine(link));
+    });
+
+    let resizeTimer: number;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(() => {
+            const activeLink = document.querySelector<HTMLAnchorElement>(`.${CONFIG.SELECTORS.NAV_LINK_ACTIVE}`);
+            updateNavLine(activeLink);
+        }, 100);
     });
 
     const navList = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LIST);
@@ -74,6 +102,7 @@ export const initMobileMenu = (): void => {
     const burger = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_BURGER);
     const navList = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LIST);
     const navLinks = document.querySelectorAll<HTMLAnchorElement>(CONFIG.SELECTORS.NAV_LINK);
+    const navLine = document.querySelector<HTMLElement>(CONFIG.SELECTORS.NAV_LINE);
 
     if (!burger || !navList) return;
 
@@ -82,6 +111,8 @@ export const initMobileMenu = (): void => {
         navList.classList.toggle('active');
 
         if (isActive) {
+            if (navLine) navLine.style.opacity = '0';
+
             // Animate items in
             gsap.fromTo(`${CONFIG.SELECTORS.NAV_LIST} li`, 
                 { x: 50, opacity: 0 },
@@ -119,11 +150,9 @@ export const initHeaderScroll = (): void => {
 };
 
 export const initHashScroll = (): void => {
-    // Handle initial load with hash
     const handleInitialHash = () => {
         const hash = window.location.hash;
         if (hash) {
-            // Small delay to ensure GSAP and ScrollTrigger are ready
             setTimeout(() => {
                 const target = document.querySelector(hash);
                 if (target) {
@@ -133,7 +162,6 @@ export const initHashScroll = (): void => {
         }
     };
 
-    // Handle clicks on anchor links for smooth behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
             e.preventDefault();
@@ -143,7 +171,6 @@ export const initHashScroll = (): void => {
             const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth' });
-                // Update URL hash without jumping
                 history.pushState(null, '', href);
             }
         });
